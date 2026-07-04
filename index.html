@@ -9,12 +9,83 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Profile Card Container -->
+    <!-- Profile Card -->
     <div class="profile-card">
         <img src="./images/profile.png" alt="Profile Pic">
         <h2>Juan Dela Cruz</h2>
         <p>Web Developer | Coffee Lover ☕</p>
         <button>Follow</button>
     </div>
+
+    <!-- Show Answer Button -->
+    <button class="show-btn" onclick="toggleCode()">
+        📖 Show Answer / View Code
+    </button>
+
+    <!-- Hidden Code Section -->
+    <div class="code-box" id="codeBox">
+        <h3>HTML Code:</h3>
+        <pre><code>&lt;div class="profile-card"&gt;
+    &lt;img src="./images/profile.png" alt="Profile Pic"&gt;
+    &lt;h2&gt;Juan Dela Cruz&lt;/h2&gt;
+    &lt;p&gt;Web Developer | Coffee Lover ☕&lt;/p&gt;
+    &lt;button&gt;Follow&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>CSS Code:</h3>
+        <pre><code>.profile-card {
+    width: 320px;
+    background: white;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #3b82f6;
+    object-fit: cover;
+}
+
+.profile-card h2 {
+    margin-top: 10px;
+    color: #1e293b;
+    font-size: 24px;
+}
+
+.profile-card button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.profile-card button:hover {
+    background: #2563eb;
+}</code></pre>
+    </div>
+
+    <script>
+        // Toggle show/hide code
+        function toggleCode() {
+            var box = document.getElementById('codeBox');
+            var btn = document.querySelector('.show-btn');
+            
+            if (box.classList.contains('show')) {
+                box.classList.remove('show');
+                btn.textContent = '📖 Show Answer / View Code';
+            } else {
+                box.classList.add('show');
+                btn.textContent = '❌ Hide Code';
+            }
+        }
+    </script>
 </body>
 </html>
