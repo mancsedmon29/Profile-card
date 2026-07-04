@@ -1,0 +1,92 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0; /* Light gray background */
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    /* Center the card sa gitna ng page */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Main Profile Card */
+.profile-card {
+    width: 320px;
+    background: white;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Shadow para angat */
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth hover */
+}
+
+/* Hover effect sa buong card */
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Profile Image */
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Circle shape */
+    border: 3px solid #3b82f6; /* Blue border */
+    object-fit: cover; /* Para di ma-stretch image */
+    margin-bottom: 15px;
+}
+
+/* Name */
+.profile-card h2 {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: #1e293b;
+    font-size: 24px;
+}
+
+/* Bio/Description */
+.profile-card p {
+    color: #64748b;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Follow Button */
+.profile-card button {
+    background: #3b82f6; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+.profile-card button:hover {
+    background: #2563eb; /* Darker blue pag hover */
+}
+
+/* Button click effect */
+.profile-card button:active {
+    transform: scale(0.98);
+}
+
+/* Mobile responsive */
+@media (max-width: 400px) {
+    .profile-card {
+        width: 100%;
+        padding: 25px 20px;
+    }
+}
