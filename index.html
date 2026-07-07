@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Price Tag - Capstone 2.3</title>
+    <title>Profile Card - Capstone 2.2</title>
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Product Card -->
-    <div class="product-card">
-        <div class="sale-badge">SALE!</div>
-        <img src="./images/earbuds.png" alt="Wireless Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <p class="price">₱999 <span class="old-price">₱1999</span></p>
+    <!-- Profile Card -->
+    <div class="profile-card">
+        <img src="./images/profile.png" alt="Profile Pic">
+        <h2>Juan Dela Cruz</h2>
+        <p>Web Developer | Coffee Lover ☕</p>
+        <button>Follow</button>
     </div>
 
     <!-- Show Answer Button -->
@@ -23,132 +25,160 @@
     <!-- Hidden Code Section -->
     <div class="code-box" id="codeBox">
         <h3>HTML Code:</h3>
-        <pre><code>&lt;div class="product-card"&gt;
-  &lt;div class="sale-badge"&gt;SALE!&lt;/div&gt;
-  &lt;img src="product.jpg" alt="Wireless Earbuds"&gt;
-  &lt;h3&gt;Wireless Earbuds&lt;/h3&gt;
-  &lt;p class="price"&gt;₱999 &lt;span class="old-price"&gt;₱1999&lt;/span&gt;&lt;/p&gt;
+        <pre><code>&lt;div class="profile-card"&gt;
+    &lt;img src="./images/profile.png" alt="Profile Pic"&gt;
+    &lt;h2&gt;Juan Dela Cruz&lt;/h2&gt;
+    &lt;p&gt;Web Developer | Coffee Lover ☕&lt;/p&gt;
+    &lt;button&gt;Follow&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
         <h3>CSS Key Concepts:</h3>
-        <pre><code>/* 1. LAYOUT & BOX MODEL */
+        <pre><code>/* 1. GLOBAL RESET & BASE STYLES */
 * {
-  margin: 0;              /* Tanggal default spacing */
-  padding: 0;             /* Tanggal default spacing */
-  box-sizing: border-box; /* Kasama na border/padding sa width/height */
+  margin: 0;              /* Tanggal default margin ng lahat ng elements */
+  padding: 0;             /* Tanggal default padding ng lahat ng elements */
+  box-sizing: border-box; /* Para kasama border/padding sa width/height calculation */
 }
 
-.product-card {
-  width: 250px;           /* Lapad ng card */
-  height: 350px;          /* Taas ng card */
-  margin: 50px auto 30px; /* Top 50px, auto left/right = center, bottom 30px */
-  padding: 15px;          /* 15px space sa loob ng card */
-  border: 2px solid black;/* 2px solid na itim na border */
-}
-
-/* 2. POSITIONING */
-.product-card {
-  position: relative;     /* Parent reference para sa absolute child */
-}
-
-.sale-badge {
-  position: absolute;     /* Tatanggalin sa normal flow */
-  top: -20px;            /* 20px angat mula sa top ng parent */
-  right: -20px;          /* 20px labas mula sa right ng parent */
-}
-
-/* 3. DISPLAY & VISIBILITY */
-.show-btn {
-  display: block;         /* Gawing block element para gumana margin auto */
-}
-.code-box {
-  display: none;          /* Naka-hide by default */
-}
-.code-box.show {
-  display: block;         /* Ipapakita kapag may .show class */
-}
-
-/* 4. COLORS & BACKGROUND */
 body {
-  background-color: #f5f5f5; /* Light gray background ng page */
-}
-.product-card {
-  background-color: white;   /* Puting background ng card */
-}
-.price {
-  color: red;                /* Pulang text para sa sale price */
-}
-.old-price {
-  color: gray;               /* Gray text para sa original price */
+  background: #f0f0f0;                    /* Light gray background ng buong page */
+  font-family: 'Poppins', sans-serif;     /* Gamit yung Google Font na Poppins */
+  min-height: 100vh;                      /* Minimum height = full screen height */
+  padding: 40px 20px;                     /* 40px top/bottom, 20px left/right spacing */
 }
 
-/* 5. TYPOGRAPHY */
-body {
-  font-family: Arial, sans-serif; /* Default font ng buong page */
-}
-.sale-badge {
-  font-weight: bold;       /* Makapal na text */
-  font-size: 0.9rem;      /* Medyo maliit na font size */
-  line-height: 60px;      /* Vertical center trick para sa single line text */
-}
-.price {
-  font-size: 2rem;        /* Malaking font para ma-highlight */
-}
-.old-price {
-  text-decoration: line-through; /* May guhit sa gitna = discount */
+/* 2. CARD LAYOUT & BOX MODEL */
+.profile-card {
+  width: 320px;           /* Fixed na lapad ng card */
+  background: white;      /* Puting background */
+  padding: 30px;          /* 30px space sa loob ng card */
+  border: 1px solid #ddd; /* Manipis na gray border */
+  border-radius: 15px;    /* Rounded corners ng card */
+  margin: 0 auto 30px;    /* 0 top, auto left/right = center, 30px bottom */
 }
 
-/* 6. IMAGES */
-.product-card img {
-  width: 100%;            /* Sakto sa lapad ng parent */
-  height: 200px;          /* Fixed height para pantay lahat */
-  object-fit: cover;      /* Crop image para di ma-stretch */
-  border-bottom: 1px solid #ddd; /* Manipis na divider line */
+/* 3. TYPOGRAPHY */
+.profile-card h2 {
+  margin-top: 10px;       /* 10px space sa taas ng name */
+  margin-bottom: 8px;     /* 8px space sa baba ng name */
+  color: #1e293b;         /* Dark blue-gray text color */
+  font-size: 24px;        /* Medyo malaking font size */
 }
 
-/* 7. EFFECTS & TRANSFORMS */
-.product-card {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Shadow para may depth */
-  transition: transform 0.3s ease;        /* Smooth animation sa hover */
-}
-.product-card:hover {
-  transform: translateY(-5px);            /* Angat ng 5px pag hinovor */
-}
-.sale-badge {
-  border-radius: 50%;     /* Perfect circle */
-  transform: rotate(15deg); /* Tabingi ng 15 degrees */
+.profile-card p {
+  color: #64748b;         /* Gray text para sa bio */
+  margin-bottom: 20px;    /* 20px space bago yung button */
+  font-size: 14px;        /* Maliit na font para sa description */
 }
 
-/* 8. ALIGNMENT */
-.product-card {
-  text-align: center;     /* Center lahat ng text sa loob */
-}
-.show-btn {
-  margin: 0 auto;         /* Center yung button horizontally */
+/* 4. IMAGES */
+.profile-card img {
+  width: 100px;           /* 100px lapad ng profile pic */
+  height: 100px;          /* 100px taas para perfect square */
+  border-radius: 50%;     /* Gawing bilog yung image */
+  border: 3px solid #3b82f6; /* Blue na border sa paligid ng pic */
+  object-fit: cover;      /* Crop yung image para di ma-stretch */
+  margin-bottom: 15px;    /* 15px space sa baba ng image */
 }
 
-/* 9. INTERACTIVE ELEMENTS */
-.show-btn {
-  cursor: pointer;        /* Gawing kamay yung mouse pag hinovor */
+/* 5. BUTTON STYLES */
+.profile-card button {
+  background: #3b82f6;    /* Blue background */
+  color: white;           /* Puting text */
   border: none;           /* Tanggal default border ng button */
   border-radius: 8px;     /* Rounded corners */
+  padding: 12px 30px;     /* 12px top/bottom, 30px left/right */
+  font-size: 16px;        /* Standard na font size */
+  font-weight: 600;       /* Semi-bold text */
+  cursor: pointer;        /* Gawing kamay yung cursor pag hinovor */
+  transition: background 0.3s ease; /* Smooth color change sa hover */
 }
 
-/* 10. RESPONSIVE DESIGN */
-@media (max-width: 400px) {  /* Gumagana lang pag 400px pababa screen */
-  .product-card {
-    width: 100%;             /* Full width sa mobile */
-    max-width: 250px;        /* Pero hanggang 250px lang */
-  }
+.profile-card button:hover {
+  background: #2563eb;    /* Mas dark blue pag hinovor */
 }
 
-/* 11. OVERFLOW */
+/* 6. EFFECTS & ANIMATIONS */
+.profile-card {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Malambot na shadow para may depth */
+  text-align: center;                     /* Center lahat ng laman ng card */
+  transition: transform 0.3s ease;        /* Smooth animation sa hover */
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);            /* Angat ng 5px pataas pag hinovor */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Mas malaking shadow pag hinovor */
+}
+
+/* 7. SHOW/HIDE FUNCTIONALITY */
+.show-btn {
+  background: #10b981;                    /* Green na button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;     /* Same font sa body */
+  cursor: pointer;
+  display: block;                         /* Block para gumana margin auto */
+  margin: 0 auto;                         /* Center horizontally */
+  transition: background 0.3s ease;
+}
+
+.show-btn:hover {
+  background: #059669;                    /* Darker green sa hover */
+}
+
+.code-box {
+  max-width: 700px;       /* Max lapad ng code box */
+  margin: 20px auto;      /* 20px top/bottom, center left/right */
+  background: #1e293b;    /* Dark blue-gray background */
+  border-radius: 10px;    /* Rounded corners */
+  padding: 20px;          /* Space sa loob */
+  display: none;          /* Naka-hide muna by default */
+}
+
+.code-box.show {
+  display: block;         /* Ipapakita pag na-add yung .show class */
+}
+
+/* 8. CODE BLOCK STYLING */
+.code-box h3 {
+  color: #fbbf24;         /* Yellow/gold na heading */
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 pre {
-  overflow-x: auto;       /* Scroll horizontal pag mahaba yung code */
+  background: #0f172a;    /* Mas dark na background para sa code */
+  border: 1px solid #334155; /* Border ng code block */
+  border-radius: 6px;
+  padding: 15px;
+  overflow-x: auto;       /* Horizontal scroll pag mahaba yung code */
+  margin-bottom: 15px;
+}
+
+code {
+  font-family: 'Courier New', monospace; /* Monospace font para sa code */
+  font-size: 13px;
+  color: #e2e8f0;         /* Light gray text */
+  line-height: 1.6;       /* Medyo maluwag na line spacing */
+}
+
+/* 9. RESPONSIVE DESIGN */
+@media (max-width: 400px) {  /* Pag 400px pababa yung screen width */
+  .profile-card {
+    width: 100%;             /* Full width na yung card sa mobile */
+  }
+  code {
+    font-size: 11px;         /* Mas maliit na font sa code pag mobile */
+  }
 }</code></pre>
     </div>
 
     <script>
+        // Toggle show/hide code
         function toggleCode() {
             var box = document.getElementById('codeBox');
             var btn = document.querySelector('.show-btn');
